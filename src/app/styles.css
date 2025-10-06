@@ -1,0 +1,428 @@
+/* General Styles */
+:root {
+  --primary-color: #2563eb;
+  --primary-hover: #1d4ed8;
+  --success-color: #22c55e;
+  --success-hover: #16a34a;
+  --danger-color: #ef4444;
+  --danger-hover: #dc2626;
+  --warning-color: #eab308;
+  --warning-hover: #ca8a04;
+  --gray-color: #6b7280;
+  --gray-hover: #4b5563;
+}
+
+/* Password Generator Styles */
+.generator-container {
+  max-width: 500px;
+  margin: 0 auto;
+  padding: 24px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.generator-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.password-section {
+  margin-bottom: 16px;
+}
+
+.password-input-group {
+  display: flex;
+  gap: 8px;
+  margin-bottom: 8px;
+}
+
+.password-display {
+  flex: 1;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.options-section {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.length-control {
+  margin-bottom: 8px;
+}
+
+.option-label {
+  display: block;
+  margin-bottom: 8px;
+}
+
+.length-slider {
+  width: 100%;
+}
+
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.option-row {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+}
+
+/* Vault List Styles */
+.vault-list {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.search-container {
+  margin-bottom: 16px;
+}
+
+.search-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.vault-items {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.vault-item {
+  padding: 16px;
+  background: white;
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+.item-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+
+.item-details {
+  flex: 1;
+}
+
+.item-title {
+  font-size: 18px;
+  font-weight: 600;
+  margin-bottom: 4px;
+}
+
+.item-username {
+  color: var(--gray-color);
+}
+
+.item-url {
+  color: var(--primary-color);
+  text-decoration: none;
+}
+
+.item-url:hover {
+  text-decoration: underline;
+}
+
+.item-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Form Styles */
+.vault-form {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+.form-label {
+  font-weight: 500;
+}
+
+.form-input {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+}
+
+.form-actions {
+  display: flex;
+  gap: 8px;
+}
+
+/* Dashboard Styles */
+.dashboard {
+  min-height: 100vh;
+  background: #f9fafb;
+}
+
+.main-nav {
+  background: white;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+  margin-bottom: 32px;
+}
+
+.nav-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.nav-content {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  height: 64px;
+}
+
+.nav-logo {
+  display: flex;
+  align-items: center;
+}
+
+.app-title {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+.nav-actions {
+  display: flex;
+  gap: 16px;
+}
+
+.main-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.form-section {
+  margin-bottom: 32px;
+}
+
+.section-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 16px;
+}
+
+.unlock-screen {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #f9fafb;
+}
+
+.unlock-form {
+  padding: 32px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  max-width: 400px;
+  width: 100%;
+}
+
+.form-title {
+  font-size: 24px;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+
+.unlock-btn {
+  width: 100%;
+  padding: 8px;
+  background: var(--primary-color);
+  color: white;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.unlock-btn:hover {
+  background: var(--primary-hover);
+}
+
+.add-btn {
+  background: var(--success-color);
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.add-btn:hover {
+  background: var(--success-hover);
+}
+
+.logout-btn {
+  background: var(--danger-color);
+  color: white;
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.logout-btn:hover {
+  background: var(--danger-hover);
+}
+
+/* Generator Page Styles */
+.generator-page {
+  min-height: 100vh;
+  background: #f9fafb;
+  padding: 48px 0;
+}
+
+.page-container {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 0 16px;
+}
+
+.page-title {
+  font-size: 32px;
+  font-weight: bold;
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+/* Landing Page Styles */
+.landing-page {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+}
+
+.landing-content {
+  max-width: 1200px;
+  width: 100%;
+  text-align: center;
+}
+
+.main-title {
+  font-size: 36px;
+  font-weight: bold;
+  margin-bottom: 24px;
+}
+
+.main-description {
+  font-size: 20px;
+  margin-bottom: 32px;
+}
+
+.auth-buttons {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin-bottom: 48px;
+}
+
+.features-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 32px;
+  margin-top: 48px;
+}
+
+.feature-card {
+  padding: 24px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.feature-title {
+  font-size: 20px;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.feature-description {
+  color: var(--gray-color);
+}
+
+/* Button Styles */
+.action-btn, .submit-btn, .cancel-btn, .copy-btn, .generate-btn, .login-btn, .signup-btn {
+  padding: 8px 16px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 500;
+  color: white;
+  transition: background-color 0.2s;
+}
+
+.copy-btn, .login-btn {
+  background: var(--primary-color);
+}
+
+.copy-btn:hover, .login-btn:hover {
+  background: var(--primary-hover);
+}
+
+.generate-btn, .signup-btn {
+  background: var(--success-color);
+}
+
+.generate-btn:hover, .signup-btn:hover {
+  background: var(--success-hover);
+}
+
+.edit-btn {
+  background: var(--warning-color);
+}
+
+.edit-btn:hover {
+  background: var(--warning-hover);
+}
+
+.delete-btn {
+  background: var(--danger-color);
+}
+
+.delete-btn:hover {
+  background: var(--danger-hover);
+}
+
+.submit-btn {
+  background: var(--primary-color);
+}
+
+.submit-btn:hover {
+  background: var(--primary-hover);
+}
+
+.cancel-btn {
+  background: var(--gray-color);
+}
+
+.cancel-btn:hover {
+  background: var(--gray-hover);
+}
