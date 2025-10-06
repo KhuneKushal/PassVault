@@ -22,7 +22,7 @@ export async function POST(req) {
 
     const user = await User.create({
       email,
-      password: hashedPassword,
+      hashedPassword: hashedPassword,
     });
 
     // In a real app, you'd also create a session/JWT here
