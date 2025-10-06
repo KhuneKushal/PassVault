@@ -50,6 +50,11 @@ export function generatePassword(options) {
       .join('');
   }
 
+  // Ensure charset is not empty
+  if (charset.length === 0) {
+    charset = lowercase;
+  }
+
   let password = '';
   const randomValues = new Uint32Array(length);
   crypto.getRandomValues(randomValues);

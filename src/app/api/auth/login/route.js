@@ -37,6 +37,10 @@ export async function POST(request) {
     return NextResponse.json({ message: 'Login successful' });
   } catch (error) {
     console.error('Login error:', error);
-    return NextResponse.json({ error: 'Internal server error' }, { status: 500 });
+    const debug = process.env.PV_DEBUG === 'true' || process.env.PV_DEBUG === '1';
+    return NextResponse.json(
+      { error: 'Internal server error', ...(debug ? { details: error.message } : {}) },
+      { status: 500 }
+    );
   }
 }

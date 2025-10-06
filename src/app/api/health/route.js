@@ -1,32 +1,34 @@
 import { NextResponse } from 'next/server';
-import dbConnect from '@/lib/mongodb';
+import dbConnect from '../../../lib/mongodb';
 
 export async function GET() {
-  const missing = [];
-  if (!process.env.MONGODB_URI) missing.push('MONGODB_URI');
-  if (!process.env.JWT_SECRET) missing.push('JWT_SECRET');
-  if (!process.env.NEXT_PUBLIC_ENCRYPTION_SALT) missing.push('NEXT_PUBLIC_ENCRYPTION_SALT');
-
-  const result = {
-    env: {
-      MONGODB_URI: !!process.env.MONGODB_URI,
-      JWT_SECRET: !!process.env.JWT_SECRET,
-      NEXT_PUBLIC_ENCRYPTION_SALT: !!process.env.NEXT_PUBLIC_ENCRYPTION_SALT,
-    },
-    db: null,
-    missingEnv: missing,
+  const checks = {
+    mongodb_uri: false,
+    jwt_secret: false,
+    db_connection: false,
+    timestamp: new Date().toISOString(),
   };
 
-  if (missing.length > 0) {
-    return NextResponse.json(result, { status: 500 });
+  // Check for environment variables
+  if (process.env.MONGODB_URI) {
+    checks.mongodb_uri = true;
   }
 
+  if (process.env.JWT_SECRET) {
+    checks.jwt_secret = true;
+  }
+
+  // Check database connection
   try {
     await dbConnect();
-    result.db = 'connected';
-    return NextResponse.json(result);
-  } catch (err) {
-    result.db = `error: ${err.message}`;
-    return NextResponse.json(result, { status: 500 });
+    checks.db_connection = true;
+  } catch (error) {
+    checks.db_connection = false;
+    console.error('Health check DB connection error:', error);
   }
+
+  const all_ok = Object.values(checks).every(v => v === true || typeof v === 'string');
+  const status = all_ok ? 200 : 500;
+
+  return NextResponse.json(checks, { status });
 }
